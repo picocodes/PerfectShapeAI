@@ -3,18 +3,21 @@
 
 :root {
   color-scheme: light;
-  --ink: #0c0c0c;
-  --cream: #f7f3ee;
-  --mint: #2ec4b6;
-  --coral: #ff6b6b;
-  --sun: #ffbf69;
-  --midnight: #1a1b26;
+}
+
+@theme {
+  --color-ink: #0c0c0c;
+  --color-cream: #f7f3ee;
+  --color-mint: #2ec4b6;
+  --color-coral: #ff6b6b;
+  --color-sun: #ffbf69;
+  --color-midnight: #1a1b26;
 }
 
 body {
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
   background: radial-gradient(circle at top, #fff4d6 0%, #f7f3ee 45%, #eef2f7 100%);
-  color: var(--ink);
+  color: var(--color-ink);
 }
 
 .app-shell {

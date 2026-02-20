@@ -48,22 +48,26 @@ export function LoginPage() {
           </p>
         </div>
 
-        <label className="block text-sm font-medium text-ink">
+        <label className="block text-sm font-medium text-ink" htmlFor="email">
           Email
           <input
+            id="email"
             className="mt-2 w-full rounded-full border border-ink/10 px-4 py-3 text-sm outline-none focus:border-mint"
             type="email"
+            autoComplete="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             required
           />
         </label>
 
-        <label className="block text-sm font-medium text-ink">
+        <label className="block text-sm font-medium text-ink" htmlFor="password">
           Password
           <input
+            id="password"
             className="mt-2 w-full rounded-full border border-ink/10 px-4 py-3 text-sm outline-none focus:border-mint"
             type="password"
+            autoComplete={mode === "login" ? "current-password" : "new-password"}
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             required
@@ -75,7 +79,7 @@ export function LoginPage() {
 
         <button
           type="submit"
-          className="w-full rounded-full bg-mint px-6 py-3 text-sm font-semibold text-ink shadow-tight"
+          className="w-full rounded-full bg-mint px-6 py-3 text-sm font-semibold text-ink shadow-tight transition hover:-translate-y-0.5 hover:bg-mint/90 disabled:cursor-not-allowed disabled:opacity-70"
           disabled={busy}
         >
           {busy ? "Working..." : mode === "login" ? "Log in" : "Create account"}
