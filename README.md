@@ -18,62 +18,66 @@ This repository scaffolds the core product described in `AGENTS.md`.
 ## Local setup
 
 1. Prereqs
-- Node.js 18+
-- Firebase CLI installed and authenticated
-- For mobile: Android Studio and/or Xcode + CocoaPods
+  - Node.js 18+
+  - Firebase CLI installed and authenticated
+    ```powershell
+    npm install -g firebase-tools
+    ```
+  - For mobile: Android Studio and/or Xcode + CocoaPods
 
 2. Environment variables
-- Backend: copy `backend/functions/.env.example` to `.env` and fill values.
-- Web: copy `web/.env.example` to `.env.local` and fill values.
-- Mobile: copy `react-native/.env.example` to `.env` and fill values.
+  - Backend: copy `backend/functions/.env.example` to `.env` and fill values.
+  - Web: copy `web/.env.example` to `.env.local` and fill values.
+  - Mobile: copy `react-native/.env.example` to `.env` and fill values.
 
 3. Install dependencies (per package)
-- Backend functions:
-```powershell
-cd backend/functions
-npm install
-```
-- Web:
-```powershell
-cd web
-npm install --workspaces=false
-```
-- Mobile:
-```powershell
-cd react-native
-npm install
-```
+  - Backend functions:
+    ```powershell
+    cd backend/functions
+    npm install
+    ```
+  - Web:
+    ```powershell
+    cd web
+    npm install --workspaces=false
+    ```
+
+  - Mobile:
+    ```powershell
+    cd react-native
+    npm install
+    ```
 
 ## Run locally
 
 1. Backend (Functions emulator)
-```powershell
-cd backend
-firebase emulators:start --only functions
-```
+  ```powershell
+  cd backend
+  firebase emulators:start --only functions
+  ```
 
 2. Web
-```powershell
-cd web
-npm run dev
-```
+  ```powershell
+  cd web
+  npm run dev
+  ```
 
 3. Mobile
-- Metro bundler:
-```powershell
-cd react-native
-npm start
-```
-- iOS (macOS):
-```powershell
-cd react-native
-npm run ios
-```
-- Android:
-```powershell
-cd react-native
-npm run android
-```
+  - Metro bundler:
+    ```powershell
+    cd react-native
+    npm start
+    ```
+  - iOS (macOS):
+    ```powershell
+    cd react-native
+    npm run ios
+    ```
+  - Android:
+    ```powershell
+    cd react-native
+    npm run android
+    ```
 
 ## Tests
 
