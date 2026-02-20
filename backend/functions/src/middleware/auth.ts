@@ -1,0 +1,30 @@
+import type { Request, Response, NextFunction } from "express";
+import { getAuth } from "firebase-admin/auth";
+import { initializeAdmin } from "../services/firestore.js";
+
+export interface AuthedRequest extends Request {
+  user?: {
+    uid: string;
+    email?: string | null;
+  };
+}
+
+export async function requireAuth(req: AuthedRequest, res: Response, next: NextFunction) {
+  const header = req.headers.authorization;
+  if (!header?.startsWith("Bearer ")) {
+    res.status(401).json({ error: "missing_auth" });
+    return;
+  }
+
+  const token = header.slice("Bearer ".length);
+
+  try {
+    initializeAdmin();
+    const decoded = await getAuth().verifyIdToken(token);
+    req.user = { uid: decoded.uid, email: decoded.email };
+    next();
+  } catch (err) {
+    console.error(err);
+    res.status(401).json({ error: "invalid_auth" });
+  }
+}
