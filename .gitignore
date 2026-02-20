@@ -4,6 +4,7 @@ npm-debug.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+firebase-debug.log
 
 # Lock files
 package-lock.json
@@ -32,3 +33,6 @@ build/
 /android/.gradle/
 /android/build/
 .watchmanconfig
+
+# Next.js
+.next/
