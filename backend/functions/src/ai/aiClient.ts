@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-const DEFAULT_MODEL = "gpt-4o-mini";
+const DEFAULT_MODEL = "openai/gpt-5-mini";
 
 export interface AiRequest {
   system: string;
@@ -26,11 +26,11 @@ export async function callAi(request: AiRequest): Promise<AiResponse> {
     };
   }
 
-  const response = await fetch(`${baseUrl}/v1/chat/completions`, {
+  const response = await fetch(baseUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`
+      'cf-aig-authorization': `Bearer ${apiKey}`
     },
     body: JSON.stringify({
       model: process.env.CLOUDFLARE_AI_MODEL ?? DEFAULT_MODEL,

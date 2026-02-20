@@ -18,14 +18,15 @@ This repository scaffolds the core product described in `AGENTS.md`.
 ## Local setup
 
 1. Prereqs
+
   - Node.js 18+
   - Firebase CLI installed and authenticated
     ```powershell
     npm install -g firebase-tools
     ```
-  - For mobile: Android Studio and/or Xcode + CocoaPods
-
+  - For mobile: `Android Studio` and/or `Xcode` + `CocoaPods`
 2. Environment variables
+
   - Backend: copy `backend/functions/.env.example` to `.env` and fill values.
   - Web: copy `web/.env.example` to `.env.local` and fill values.
   - Mobile: copy `react-native/.env.example` to `.env` and fill values.
