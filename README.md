@@ -37,11 +37,11 @@ This repository scaffolds the core product described in `AGENTS.md`.
     cd backend/functions
     npm install
     ```
-  - Web:
-    ```powershell
-    cd web
-    npm install --workspaces=false
-    ```
+- Web (Vite):
+```powershell
+cd web
+npm install
+```
 
   - Mobile:
     ```powershell
@@ -57,11 +57,11 @@ This repository scaffolds the core product described in `AGENTS.md`.
   firebase emulators:start --only functions
   ```
 
-2. Web
-  ```powershell
-  cd web
-  npm run dev
-  ```
+2. Web (Vite)
+```powershell
+cd web
+npm run dev
+```
 
 3. Mobile
   - Metro bundler:
@@ -109,4 +109,3 @@ firebase deploy --only hosting
 3. Mobile
 - iOS: archive in Xcode and upload to App Store Connect.
 - Android: generate a signed AAB and upload to Google Play Console.
-

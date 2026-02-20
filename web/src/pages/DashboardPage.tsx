@@ -1,4 +1,4 @@
-export default function DashboardPage() {
+export function DashboardPage() {
   return (
     <main className="flex flex-1 flex-col gap-6 px-6 py-10">
       <header className="flex flex-wrap items-center justify-between gap-4">

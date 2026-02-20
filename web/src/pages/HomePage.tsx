@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 const features = [
   "AI workouts built for your living room",
@@ -7,7 +7,7 @@ const features = [
   "A coach that keeps you moving"
 ];
 
-export default function Home() {
+export function HomePage() {
   return (
     <main className="relative flex flex-1 items-center justify-center px-6 py-16">
       <div className="glow" />
@@ -26,7 +26,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-4">
             <Link
               className="rounded-full bg-mint px-6 py-3 text-sm font-semibold text-ink shadow-tight transition hover:-translate-y-0.5"
-              href="/dashboard"
+              to="/dashboard"
             >
               Log In
             </Link>

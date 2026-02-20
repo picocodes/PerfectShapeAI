@@ -1,14 +1,14 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
-const firebaseConfig = process.env.NEXT_PUBLIC_FIREBASE_CONFIG
-  ? JSON.parse(process.env.NEXT_PUBLIC_FIREBASE_CONFIG)
+const firebaseConfig = import.meta.env.VITE_FIREBASE_CONFIG
+  ? JSON.parse(import.meta.env.VITE_FIREBASE_CONFIG)
   : null;
 
 export function getFirebaseApp() {
   if (getApps().length) return getApps()[0]!;
   if (!firebaseConfig) {
-    throw new Error("Missing NEXT_PUBLIC_FIREBASE_CONFIG");
+    throw new Error("Missing VITE_FIREBASE_CONFIG");
   }
   return initializeApp(firebaseConfig);
 }
