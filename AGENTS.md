@@ -472,7 +472,7 @@ Security
 * No sensitive logic on client
 * Protect against users who create multiple accounts to abuse free credits.
 
-5. After creating account, users get 10 free credits. They also need to set up their profile (height, weight, goals) to get personalized plans. The first AI-generated workout plan is free, but subsequent ones cost credits. This encourages users to engage and see value before paying.
+5. After creating account, users get  0.1 free credits. They also need to set up their profile (height, weight, goals) to get personalized plans. The first AI-generated workout plan is free, but subsequent ones cost credits. This encourages users to engage and see value before paying.
 
 6. Code Quality Expectations
 
