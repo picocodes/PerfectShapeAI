@@ -26,7 +26,7 @@ export function HomePage() {
           <div className="flex flex-wrap gap-4">
             <Link
               className="rounded-full bg-mint px-6 py-3 text-sm font-semibold text-ink shadow-tight transition hover:-translate-y-0.5"
-              to="/dashboard"
+              to="/login"
             >
               Log In
             </Link>

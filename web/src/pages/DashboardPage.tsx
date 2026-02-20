@@ -1,4 +1,8 @@
+import { useAuth } from "../auth/AuthProvider";
+
 export function DashboardPage() {
+  const { user, logout } = useAuth();
+
   return (
     <main className="flex flex-1 flex-col gap-6 px-6 py-10">
       <header className="flex flex-wrap items-center justify-between gap-4">
@@ -6,9 +10,18 @@ export function DashboardPage() {
           <p className="text-xs uppercase tracking-[0.3em] text-ink/50">Welcome back</p>
           <h2 className="font-display text-3xl font-semibold text-ink">Your PerfectShape dashboard</h2>
         </div>
-        <button className="rounded-full bg-midnight px-5 py-2 text-sm font-semibold text-cream">
-          Sync Mobile App
-        </button>
+        <div className="flex flex-wrap items-center gap-3">
+          <span className="text-sm text-ink/60">{user?.email ?? "Signed in"}</span>
+          <button className="rounded-full bg-midnight px-5 py-2 text-sm font-semibold text-cream">
+            Sync Mobile App
+          </button>
+          <button
+            className="rounded-full border border-ink/10 px-5 py-2 text-sm font-semibold text-ink"
+            onClick={() => logout()}
+          >
+            Log out
+          </button>
+        </div>
       </header>
 
       <section className="grid gap-5 lg:grid-cols-3">
