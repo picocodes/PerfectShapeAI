@@ -16,6 +16,28 @@ export function LoginPage() {
     [mode]
   );
 
+  function friendlyError(message: string) {
+    if (message.includes("auth/invalid-credential") || message.includes("auth/wrong-password")) {
+      return "That email or password doesn't look right.";
+    }
+    if (message.includes("auth/user-not-found")) {
+      return "That email or password doesn't look right.";
+    }
+    if (message.includes("auth/email-already-in-use")) {
+      return "That email already has an account.";
+    }
+    if (message.includes("auth/weak-password")) {
+      return "Password is too weak. Use at least 6 characters.";
+    }
+    if (message.includes("auth/invalid-email")) {
+      return "Please enter a valid email address.";
+    }
+    if (message.includes("auth/too-many-requests")) {
+      return "Too many attempts. Please wait a moment and try again.";
+    }
+    return "We couldn't sign you in. Please try again.";
+  }
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError(null);
@@ -28,7 +50,8 @@ export function LoginPage() {
       }
       navigate("/dashboard", { replace: true });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Unable to authenticate.");
+      const raw = err instanceof Error ? err.message : "Unable to authenticate.";
+      setError(friendlyError(raw));
     } finally {
       setBusy(false);
     }
