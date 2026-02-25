@@ -2,6 +2,7 @@ import { Router } from "express";
 import { z } from "zod";
 import { requireAuth, type AuthedRequest } from "../middleware/auth.js";
 import { db, serverTimestamp } from "../services/firestore.js";
+import { addXp } from "../services/gamification.js";
 
 export const weightRouter = Router();
 
@@ -23,7 +24,10 @@ weightRouter.post("/log", requireAuth, async (req: AuthedRequest, res) => {
     logged_at: serverTimestamp()
   });
 
-  res.json({ id: ref.id });
+  const today = new Date().toISOString().slice(0, 10);
+  const xp = await addXp(req.user!.uid, 10, today);
+
+  res.json({ id: ref.id, xp });
 });
 
 weightRouter.get("/history", requireAuth, async (req: AuthedRequest, res) => {

@@ -5,7 +5,7 @@ const maxRequests = 10;
 const buckets = new Map<string, { count: number; resetAt: number }>();
 
 export function rateLimitAi(req: Request, res: Response, next: NextFunction) {
-  const key = (req as { user?: { uid: string } }).user?.uid ?? req.ip;
+  const key = (req as { user?: { uid: string } }).user?.uid ?? req.ip ?? "unknown";
   const now = Date.now();
   const entry = buckets.get(key);
 

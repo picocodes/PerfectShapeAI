@@ -2,6 +2,7 @@ import { Router } from "express";
 import { z } from "zod";
 import { requireAuth, type AuthedRequest } from "../middleware/auth.js";
 import { db, serverTimestamp } from "../services/firestore.js";
+import { addXp } from "../services/gamification.js";
 
 export const mealsRouter = Router();
 
@@ -27,7 +28,9 @@ mealsRouter.post("/log", requireAuth, async (req: AuthedRequest, res) => {
     created_at: serverTimestamp()
   });
 
-  res.json({ id: ref.id });
+  const xp = await addXp(req.user!.uid, 20, parsed.data.date);
+
+  res.json({ id: ref.id, xp });
 });
 
 mealsRouter.get("/summary", requireAuth, async (req: AuthedRequest, res) => {
