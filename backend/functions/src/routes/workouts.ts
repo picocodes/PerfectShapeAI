@@ -2,6 +2,7 @@ import { Router } from "express";
 import { z } from "zod";
 import { requireAuth, type AuthedRequest } from "../middleware/auth.js";
 import { db, serverTimestamp } from "../services/firestore.js";
+import { addXp } from "../services/gamification.js";
 
 export const workoutsRouter = Router();
 
@@ -56,5 +57,7 @@ workoutsRouter.post("/complete", requireAuth, async (req: AuthedRequest, res) =>
     date: parsed.data.date
   });
 
-  res.json({ id: ref.id });
+  const xp = await addXp(req.user!.uid, 100, parsed.data.date);
+
+  res.json({ id: ref.id, xp });
 });

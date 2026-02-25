@@ -123,6 +123,6 @@ function aiRouterPost(path: string, schema: z.ZodSchema, handler: (req: AuthedRe
 }
 
 function creditsFromUsage(usage?: { total_tokens?: number }) {
-  if (!usage?.total_tokens) return 1;
-  return Math.max(1, Math.ceil(usage.total_tokens / 10000));
+  if (!usage?.total_tokens) return 0.1;
+  return Math.max(0.01, usage.total_tokens / 10000);
 }

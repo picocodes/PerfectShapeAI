@@ -2,7 +2,7 @@ import { db, serverTimestamp } from "./firestore.js";
 import type { UserProfile } from "./types.js";
 
 const USERS = "users";
-const DEFAULT_CREDITS = 10;
+const DEFAULT_CREDITS = 0.1;
 
 export async function ensureUser(uid: string, email?: string | null) {
   const ref = db().collection(USERS).doc(uid);

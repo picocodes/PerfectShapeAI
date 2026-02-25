@@ -27,6 +27,7 @@ yarn.lock
 dist/
 build/
 .cache/
+lib/
 
 # React Native
 /ios/Pods/
