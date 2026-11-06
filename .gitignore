@@ -6,14 +6,11 @@ yarn-debug.log*
 yarn-error.log*
 firebase-debug.log
 
-# Lock files
-package-lock.json
-yarn.lock
-
 # Environment
 .env
 .env.local
 .env.*.local
+mobile/dart_defines.json
 
 # IDE
 .vscode/
@@ -25,9 +22,8 @@ yarn.lock
 
 # Build output
 dist/
-build/
 .cache/
-lib/
+backend/functions/lib/
 
 # React Native
 /ios/Pods/
