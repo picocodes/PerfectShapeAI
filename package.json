@@ -1,13 +1,8 @@
 {
   "name": "perfectshapeai",
   "private": true,
-  "workspaces": [
-    "backend",
-    "web",
-    "react-native"
-  ],
   "scripts": {
-    "lint": "echo 'Set up lint per package'",
-    "typecheck": "echo 'Run typecheck per package'"
+    "test:api": "npm --prefix backend/functions test",
+    "typecheck:api": "npm --prefix backend/functions run typecheck"
   }
 }

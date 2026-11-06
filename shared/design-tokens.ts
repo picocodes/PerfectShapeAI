@@ -1,11 +1,13 @@
+/** Canonical colors for the Flutter app in mobile/lib/ui/theme.dart. */
 export const BrandColors = {
-  ink: "#0C0C0C",
-  cream: "#F7F3EE",
-  mint: "#2EC4B6",
-  coral: "#FF6B6B",
-  sun: "#FFBF69",
-  fog: "#E2E8F0",
-  midnight: "#1A1B26"
+  ink: "#161311",
+  cream: "#F3EEE6",
+  paper: "#FFFBF6",
+  coral: "#FF5A3C",
+  teal: "#0E8F86",
+  sun: "#FFB15A",
+  mist: "#E7DDD2",
+  midnight: "#161311"
 } as const;
 
 export const Gradients = {

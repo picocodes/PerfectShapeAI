@@ -1,5 +1,11 @@
 # PerfectShape AI
 
+## Shipped product note
+
+The mobile app in `mobile/` is the product. The web dashboard and the React Native scaffold were removed. Monetization is a free tier plus the auto-renewing Plus subscription (`perfectshape_plus_monthly`, `perfectshape_plus_yearly`) sold only through Apple In-App Purchase and Google Play Billing. The old credit balance (the conflicting 0.1 and 10 figures) is not used. AI calls go through the backend and Cloudflare AI Gateway. See `README.md`.
+
+The sections below are the original product brief. Where they disagree with the README (credits, Freemius, a web dashboard, React Native), the README and the `mobile/` app are what shipped.
+
 This is a gamified AI-powered weight loss consumer app with mobile + web + backend architecture.
 
 Project Overview
